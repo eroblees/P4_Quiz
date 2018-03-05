@@ -90,37 +90,35 @@ exports.playCmd = rl =>{
     let score = 0;
     let toBeResolved = []; //ids que quedan por preguntar
     for(let i=0; i<model.count(); ++i){
-        toBeResolved.push(i);
+        toBeResolved[i]=i;
     }
 
     const playOne = () =>{
         if(toBeResolved.length === 0){ // Si no quedan preguntas por resolver
             log('No hay nada más que preguntar.');
-            log('Fin del examen. Aciertos:');
+            log(`Fin del juego. Aciertos: ${score}`);
             biglog(`${score}`, "magenta");
             rl.prompt();
         }else{
-            let id = Math.round(Math.random() * (model.count()-1)); //Obtengo un ID aleatorio de la pregunta
+            let id = Math.round(Math.random() * (toBeResolved.length -1)); //Obtengo un ID aleatorio de la pregunta
+            let aux = toBeResolved[id];
             toBeResolved.splice(id, 1); //Elimino ese id del array de preguntas que quedan
 
-            const quiz = model.getByIndex(id);
+            const quiz = model.getByIndex(aux);
 
             rl.question(colorize(`${quiz.question}? `, 'red'), answer => {
 
                 if (answer.trim().toUpperCase() === quiz.answer.trim().toUpperCase()){
                     score++;
-                    log(`CORRECTO - Lleva ${score} aciertos`);
+                    log(`CORRECTO - Lleva ${score} aciertos.`);
+                    playOne();
                 } else {
                     log('INCORRECTO.');
-                    log('Fin del examen. Aciertos:');
+                    log(`Fin del juego. Aciertos: ${score}`);
                     biglog(`${score}`, "magenta");
+                    rl.prompt();
                 }
-                rl.prompt();
             });
-
-            playOne();
-            rl.prompt();
-
         }
     }
 
