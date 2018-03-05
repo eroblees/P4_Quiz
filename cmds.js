@@ -70,10 +70,10 @@ exports.testCmd = (rl, id) =>{
             rl.question(colorize(`${quiz.question}? `, 'red'), answer => {
 
                 if (answer.trim().toUpperCase() === quiz.answer.trim().toUpperCase()){
-                    log("Su respuesta es:");
+                    log("Su respuesta es correcta.");
                     biglog("Correcta", "green");
                 } else {
-                    log("Su respuesta es:");
+                    log("Su respuesta es incorrecta.");
                     biglog("Incorrecta", "red");
                 }
                 rl. prompt();
