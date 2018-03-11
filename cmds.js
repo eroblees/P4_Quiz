@@ -166,7 +166,7 @@ if (typeof id === "undefined"){
 */
 
 exports.playCmd = rl =>{
-
+/*
     let score = 0;
     let toBeResolved = []; //ids que quedan por preguntar
     for(let i=0; i<model.count(); ++i){
@@ -205,7 +205,7 @@ exports.playCmd = rl =>{
     playOne();
 
 }
-
+*/
 exports.deleteCmd = (rl, id) =>{
 
     validateId(id)
