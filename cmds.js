@@ -203,9 +203,9 @@ exports.playCmd = rl =>{
     }
 
     playOne();
-
-}
 */
+}
+
 exports.deleteCmd = (rl, id) =>{
 
     validateId(id)
