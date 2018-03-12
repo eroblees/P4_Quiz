@@ -208,8 +208,8 @@ exports.playCmd = rl => {
                                 log(`CORRECTO - Lleva ${score} aciertos.`);
                                 playOne();
                             } else {
-                                log('INCORRECTO.');
-                                log(`Fin del juego. Aciertos: ${score}`);
+                                log(`INCORRECTO. - Fin del juego. Aciertos: ${score}.`);
+                                //log(`Fin del juego. Aciertos: ${score}`);
                                 biglog(`${score}`, "magenta");
                                 rl.prompt();
                             }
