@@ -211,7 +211,6 @@ exports.playCmd = rl => {
                                 log(`INCORRECTO. - Fin del juego. Aciertos: ${score}.`);
                                 //log(`Fin del juego. Aciertos: ${score}`);
                                 biglog(`${score}`, "magenta");
-                                rl.prompt();
                             }
                         });
                 })
